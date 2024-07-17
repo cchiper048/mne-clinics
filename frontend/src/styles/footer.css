@@ -1,0 +1,35 @@
+footer {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 18px;
+    background: linear-gradient(to right, #dbd9d9, #fff);
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.2);
+}
+ul {
+    list-style: none;
+}
+.info {
+    width: 30%;
+}
+.usluge {
+    width: 30%;
+}
+.usluge ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    color: #0a70ed;
+}
+.usluge ul li p {
+    color: #000;
+}
+.usluge ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
