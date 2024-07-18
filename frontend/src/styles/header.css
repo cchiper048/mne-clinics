@@ -4,6 +4,7 @@ header {
     justify-content: space-between;
     padding: 20px 60px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #dbd9d9, #fff);
 }
 .logo {
     padding: 12px;
@@ -74,7 +75,7 @@ button:hover {
     height: 100vh;
     background-color: #0000007c;
     display: none;
-    animation: slideOut 0.5s forwards;
+    animation: slideOut 1s forwards;
 }
 .active-modal {
     width: 100%;
@@ -83,6 +84,7 @@ button:hover {
     position: absolute;
     top: 104px;
     display: block;
+    z-index: 999;
     animation: slideIn 0.5s forwards;
 }
 

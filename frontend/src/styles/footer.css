@@ -5,8 +5,6 @@ footer {
     justify-content: space-around;
     padding: 18px;
     background: linear-gradient(to right, #dbd9d9, #fff);
-    position: absolute;
-    bottom: 0;
     box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.2);
 }
 ul {
