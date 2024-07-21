@@ -33,7 +33,6 @@ export const Register = () => {
         console.log("Name:", name);
         console.log("Email:", email);
         console.log("Password:", password);
-        // Ovdje možete dodati logiku za registraciju
     };
 
     return (
@@ -59,6 +58,7 @@ export const Register = () => {
                         required
                     />
                 </div>
+
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
                     <input
