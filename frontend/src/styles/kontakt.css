@@ -1,0 +1,25 @@
+.kontakt-holder {
+    padding: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background: url("../images/contact-us.webp");
+    background-position: 0 -60px;
+    background-size: cover;
+    animation: slideIn 1s forwards;
+}
+.kontakt-holder h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.kontakt-holder form {
+    width: 60%;
+    padding: 32px;
+    background-color: rgba(252, 249, 249, 0.751);
+}
+.kontakt-holder form textarea {
+    width: 100%;
+}
