@@ -1,3 +1,6 @@
+.doktori-main-section {
+    animation: slideIn 1s forwards;
+}
 .doktori-title {
     font-size: 36px;
     text-align: center;
