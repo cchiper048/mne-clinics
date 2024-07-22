@@ -1,5 +1,6 @@
 .cjenovnik-holder {
     width: 100%;
+    animation: slideIn 1s forwards;
 }
 .cjenovnik-title {
     text-align: center;
