@@ -5,6 +5,8 @@ header {
     padding: 20px 60px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to right, #dbd9d9, #fff);
+    position: sticky;
+    top: 0;
 }
 .logo {
     padding: 12px;
