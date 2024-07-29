@@ -5,7 +5,7 @@ export const Cjenovnik = () => {
     const services = [
         { id: 1, name: "Konsultacija", price: "50€" },
         { id: 2, name: "Osnovni pregled", price: "30€" },
-        { id: 3, name: "Napredni pregled", price: "70€" },
+        { id: 3, name: "Sub-specijalisticki pregled", price: "70€" },
         { id: 4, name: "Laboratorijske analize", price: "40€" },
         { id: 5, name: "Specijalistički pregled", price: "100€" },
     ];
