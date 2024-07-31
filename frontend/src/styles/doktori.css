@@ -1,48 +1,105 @@
 .doktori-main-section {
-    animation: slideIn 1s forwards;
+  animation: slideIn 1s forwards;
 }
 .doktori-title {
-    font-size: 36px;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 36px;
-    text-transform: uppercase;
+  font-size: 36px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 36px;
+  text-transform: uppercase;
 }
 .doktori-holder {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 120px;
 }
 .doctor-card {
-    flex-basis: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding: 12px;
-    padding-top: 24px;
-    gap: 24px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-    border-radius: 12px;
-    overflow: hidden;
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 12px;
+  padding-top: 24px;
+  gap: 24px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
 }
 .doctor-card__img {
-    width: 80%;
+  width: 80%;
 }
 .doctor-card__img img {
-    width: 100%;
-    object-fit: contain;
-    border-radius: 12px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
 }
 .doctor-card:hover {
-    background-color: #0a5cc1;
-    color: #fff;
+  background-color: #0a5cc1;
+  color: #fff;
 }
 .doctor-card:hover .doctor-card__img img {
-    transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Media Queries for Responsiveness */
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 1200px) {
+  .doktori-holder {
+    padding: 60px;
+  }
+
+  .doctor-card {
+    flex-basis: 30%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+  .doktori-holder {
+    padding: 40px;
+  }
+
+  .doctor-card {
+    flex-basis: 45%;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+  .doktori-holder {
+    padding: 20px;
+  }
+
+  .doctor-card {
+    flex-basis: 100%;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 576px) {
+  .doktori-title {
+    font-size: 28px;
+    margin-top: 24px;
+  }
+
+  .doktori-holder {
+    padding: 10px;
+  }
+
+  .doctor-card {
+    flex-basis: 100%;
+    padding: 8px;
+    gap: 16px;
+  }
+
+  .doctor-card__img {
+    width: 100%;
+  }
 }
