@@ -1,0 +1,50 @@
+.cjenovnik-holder {
+    width: 100%;
+    animation: slideIn 1s forwards;
+}
+.cjenovnik-title {
+    text-align: center;
+    width: 100%;
+    padding: 120px 0;
+    background: linear-gradient(to right, #0a5cc1, #5fa1f1);
+}
+.cjenovnik-title h1 {
+    color: #fff;
+}
+.cjenovnik-table {
+    width: 100%;
+    padding: 90px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cjenovnik-table table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.cjenovnik-table thead {
+    background-color: #78adf8;
+    border: 1px solid #ddd;
+    font-size: 24px;
+    text-align: left;
+}
+.cjenovnik-table thead th {
+    padding: 12px;
+}
+.cjenovnik-table tr {
+    font-size: 18px;
+}
+.cjenovnik-table td {
+    padding: 12px;
+}
+.cjenovnik-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.cjenovnik-table tr:hover {
+    background-color: #ddd;
+}
+.cjenovnik-table thead tr:hover {
+    background-color: #0a5cc1;
+    color: #fff;
+}
