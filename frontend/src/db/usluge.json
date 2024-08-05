@@ -1,0 +1,59 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Rendgen dijagnostika",
+      "icon": "./src/images/icons/rendgen.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Interna medicina",
+      "icon": "./src/images/icons/interna.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Biohemijska laboratorija",
+      "icon": "./src/images/icons/laboratorija.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Mikrobiologija",
+      "icon": "./src/images/icons/mikrobiologija.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Kardiologija",
+      "icon": "./src/images/icons/kardiologija.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Dnevna bolnica",
+      "icon": "./src/images/icons/interna.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Ultrazvučna dijagnostika",
+      "icon": "./src/images/icons/interna.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Pulmologija",
+      "icon": "./src/images/icons/interna.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Ginekologija",
+      "icon": "./src/images/icons/interna.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Opšta medicina",
+      "icon": "./src/images/icons/interna.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Pedijatrija",
+      "icon": "./src/images/icons/interna.jpg"
+    }
+  ]
+}

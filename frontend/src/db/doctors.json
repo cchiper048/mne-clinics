@@ -1,0 +1,74 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "firstName": "Milan",
+      "lastName": "Jovanović",
+      "specialization": "Kardiolog",
+      "image": "https://example.com/images/milan_jovanovic.jpg"
+    },
+    {
+      "id": 2,
+      "firstName": "Ana",
+      "lastName": "Petrović",
+      "specialization": "Dermatolog",
+      "image": "./src/images/Doktori/AnaPetrovic.jpg"
+    },
+    {
+      "id": 3,
+      "firstName": "Marko",
+      "lastName": "Nikolić",
+      "specialization": "Ortoped",
+      "image": "https://example.com/images/marko_nikolic.jpg"
+    },
+    {
+      "id": 4,
+      "firstName": "Jelena",
+      "lastName": "Milovanović",
+      "specialization": "Pediatar",
+      "image": "https://example.com/images/jelena_milovanovic.jpg"
+    },
+    {
+      "id": 5,
+      "firstName": "Ivan",
+      "lastName": "Popović",
+      "specialization": "Neurolog",
+      "image": "https://example.com/images/ivan_popovic.jpg"
+    },
+    {
+      "id": 6,
+      "firstName": "Marija",
+      "lastName": "Savić",
+      "specialization": "Ginekolog",
+      "image": "https://example.com/images/marija_savic.jpg"
+    },
+    {
+      "id": 7,
+      "firstName": "Stefan",
+      "lastName": "Kovačević",
+      "specialization": "Oftalmolog",
+      "image": "https://example.com/images/stefan_kovacevic.jpg"
+    },
+    {
+      "id": 8,
+      "firstName": "Dragana",
+      "lastName": "Lukić",
+      "specialization": "Hirurg",
+      "image": "https://example.com/images/dragana_lukic.jpg"
+    },
+    {
+      "id": 9,
+      "firstName": "Nenad",
+      "lastName": "Stojanović",
+      "specialization": "Urolog",
+      "image": "https://example.com/images/nenad_stojanovic.jpg"
+    },
+    {
+      "id": 10,
+      "firstName": "Ivana",
+      "lastName": "Kostić",
+      "specialization": "Radiolog",
+      "image": "https://example.com/images/ivana_kostic.jpg"
+    }
+  ]
+}

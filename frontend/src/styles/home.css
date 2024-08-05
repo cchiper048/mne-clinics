@@ -1,168 +1,173 @@
 .home {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    animation: slideIn 1s forwards;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: slideIn 1s forwards;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 .home-info {
-    width: 100%;
-    padding: 120px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .home-info p {
-    font-size: 24px;
-    z-index: 999;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  font-size: 24px;
+  z-index: 999;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .home-info p span {
-    font-weight: 400;
-    color: #0a5cc1;
+  font-weight: 400;
+  color: #0a5cc1;
 }
 .home-info h1 {
-    font-size: 36px;
+  font-size: 36px;
 
-    text-transform: uppercase;
-    color: #0a5cc1;
+  text-transform: uppercase;
+  color: #0a5cc1;
 }
 .home-info a {
-    width: fit-content;
-    padding: 16px;
-    border: 2px solid #fff;
-    z-index: 999;
-    font-weight: bold;
-    font-size: 18px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
+  width: fit-content;
+  padding: 16px;
+  border: 2px solid #fff;
+  z-index: 999;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
 }
 .home-info a:hover {
-    color: #0a5cc1;
-    background-color: #fff;
+  color: #0a5cc1;
+  background-color: #fff;
 }
 
 .video-background {
-    position: absolute;
-    top: 0;
-    text-decoration: none;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: -2;
+  position: absolute;
+  top: 0;
+  text-decoration: none;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -2;
 }
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: -1;
 }
 .o-nama {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 120px;
 }
 .left-side {
-    flex-basis: 48%;
+  flex-basis: 48%;
 }
 .right-side {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px;
 }
 .left-side h3 {
-    font-size: 18px;
-    line-height: 1.6;
-    text-transform: uppercase;
-    color: #c5c1c1;
+  font-size: 18px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: #c5c1c1;
 }
 .left-side h2 {
-    font-size: 36px;
-    margin-bottom: 12px;
+  font-size: 36px;
+  margin-bottom: 12px;
 }
 .left-side p {
-    font-size: 16px;
-    color: #aaa7a7;
-    line-height: 1.6;
-    margin-bottom: 24px;
+  font-size: 16px;
+  color: #aaa7a7;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 .left-side a {
-    width: fit-content;
-    padding: 12px;
-    border: 2px solid #0a5cc1;
-    z-index: 999;
-    font-weight: bold;
-    font-size: 18px;
-    color: #0a5cc1;
-    text-decoration: none;
-    border-radius: 8px;
-    text-transform: uppercase;
+  width: fit-content;
+  padding: 12px;
+  border: 2px solid #0a5cc1;
+  z-index: 999;
+  font-weight: bold;
+  font-size: 18px;
+  color: #0a5cc1;
+  text-decoration: none;
+  border-radius: 8px;
+  text-transform: uppercase;
 }
 .left-side a:hover {
-    background: #0a5cc1;
-    color: #fff;
+  background: #0a5cc1;
+  color: #fff;
 }
 .right-side img {
-    width: 100%;
-    object-fit: contain;
+  width: 100%;
+  object-fit: contain;
 }
 
 .home-usluge {
-    background-color: #063f83;
-    padding: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    color: #fff;
+  background-color: #063f83;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  color: #fff;
 }
 .home-usluge h2 {
-    font-size: 36px;
+  font-size: 36px;
 }
 .usluge-holder {
-    padding: 18px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 3%;
-    flex-wrap: wrap;
+  padding: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3%;
+  flex-wrap: wrap;
 }
 .nasa-usluga {
-    width: 30%;
-    padding: 12px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    margin-bottom: 3%;
-    border: 2px solid transparent;
+  width: 30%;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 3%;
+  border: 2px solid transparent;
 }
 .usluga-icon {
-    font-size: 36px;
-    color: #4593f3;
+  width: 50%;
+  border-radius: 12px;
+  aspect-ratio: 1;
 }
 .nasa-usluga:hover .usluga-icon {
-    transform: scale(1.2);
+  transform: scale(1.1);
 }
 .nasa-usluga:hover {
-    border: 2px solid #4593f3;
+  border: 2px solid #4593f3;
+  border-radius: 12px;
+}
+.nasa-usluga h3 {
+  font-size: 24px;
 }
