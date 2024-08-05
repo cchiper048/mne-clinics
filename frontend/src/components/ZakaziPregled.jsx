@@ -52,14 +52,14 @@ export const ZakaziPregled = () => {
     <section className="zakazi-container">
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="doctor">Select Doctor:</label>
+          <label htmlFor="doctor">Izaberi Doktora:</label>
           <select
             id="doctor"
             value={selectedDoctor}
             onChange={(e) => setSelectedDoctor(e.target.value)}
             required
           >
-            <option value="">--Please choose a doctor--</option>
+            <option value="">--Izaberite doktora--</option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>
                 {`${doctor.firstName}  ${doctor.lastName}`}
@@ -69,7 +69,7 @@ export const ZakaziPregled = () => {
         </div>
 
         <div>
-          <label htmlFor="date">Select Date:</label>
+          <label htmlFor="date">Izaberi Datum:</label>
           <DatePicker
             selected={appointmentDate}
             onChange={(date) => setAppointmentDate(date)}
@@ -79,7 +79,7 @@ export const ZakaziPregled = () => {
         </div>
 
         <div>
-          <label htmlFor="time">Select Time:</label>
+          <label htmlFor="time">Izaberi Vrijeme:</label>
           <input
             type="time"
             id="time"
