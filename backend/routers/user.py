@@ -9,6 +9,7 @@ from backend.models import user as user_models
 user_models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter()
+auth_handler = user_crud.AuthHandler()
 
 def get_db():
     db = SessionLocal()
@@ -31,3 +32,7 @@ def register_user(user: user_schemas.UserCreate, db: Session = Depends(get_db)):
 @router.post("/login/")
 def login_user(auth_details: user_schemas.UserAuth, db: Session = Depends(get_db)):
     return user_crud.login_user(db=db, auth_details=auth_details)
+
+@router.get("/test-protected/")
+def test(id=Depends(auth_handler.auth_wrapper)):
+    return { 'status': 'works' }
