@@ -7,8 +7,8 @@ class DoctorAbsence(Base):
 
     id = Column(Integer, primary_key=True)
 
-    doctor_id =  Column(Integer, ForeignKey("doctors.id"))
-    doctor = relationship("Doctor", back_populates="doctor_absences")
+    # doctor_id =  Column(Integer, ForeignKey("doctors.id"))
+    # doctor = relationship("Doctor", back_populates="doctor_absences")
 
     date_from = Column(DateTime)
     date_to = Column(DateTime)

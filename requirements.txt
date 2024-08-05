@@ -1,4 +1,5 @@
 fastapi
+uvicorn
 pydantic
 sqlalchemy
 bcrypt
@@ -6,3 +7,4 @@ alembic
 psycopg2
 pydantic-settings 
 python-dotenv
+PyJWT

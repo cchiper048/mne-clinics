@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from backend.db import Base
 
@@ -14,3 +14,4 @@ class User(Base):
     address = Column(String)
     email = Column(String, unique=True)
     password = Column(String)
+    is_manager = Column(Boolean)
