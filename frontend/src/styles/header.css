@@ -59,18 +59,21 @@ header a:hover::after {
   color: #b9b8bb;
   cursor: pointer;
 }
-button {
-  border: none;
+.zakazi {
+  text-decoration: none;
   background-color: #536fd3;
   color: white;
-  padding: 12px 24px;
+  padding: 12px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
   cursor: pointer;
 }
-button:hover {
-  background-color: #0a5cc1;
+.zakazi:hover {
+  background-color: #000;
+}
+.zakazi:hover::after {
+  width: 0;
 }
 
 .modal-window {
@@ -137,9 +140,6 @@ button:hover {
   color: #0a70ed;
 }
 
-/* Media Queries for Responsiveness */
-
-/* Large devices (desktops, 992px and up) */
 @media (max-width: 1200px) {
   header {
     padding: 20px 30px;

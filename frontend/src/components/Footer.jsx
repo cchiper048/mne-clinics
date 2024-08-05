@@ -35,7 +35,7 @@ export const Footer = () => {
           <li>
             <p>
               <span>
-                <FaLocationArrow />
+                <FaLocationArrow className="icon-info" />
               </span>
               Podgorica b.b.
             </p>
@@ -43,7 +43,7 @@ export const Footer = () => {
           <li>
             <p>
               <span>
-                <FaPhone />
+                <FaPhone className="icon-info" />
               </span>
               000/000-000
             </p>
@@ -51,7 +51,7 @@ export const Footer = () => {
           <li>
             <p>
               <span>
-                <FaMailBulk />
+                <FaMailBulk className="icon-info" />
               </span>
               golovicdarko@gmail.com
             </p>
