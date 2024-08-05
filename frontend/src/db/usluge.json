@@ -28,32 +28,32 @@
     {
       "id": 6,
       "name": "Dnevna bolnica",
-      "icon": "./src/images/icons/interna.jpg"
+      "icon": "./src/images/icons/dnevna.jpg"
     },
     {
       "id": 7,
       "name": "Ultrazvučna dijagnostika",
-      "icon": "./src/images/icons/interna.jpg"
+      "icon": "./src/images/icons/ultrazvuk.jpg"
     },
     {
       "id": 8,
       "name": "Pulmologija",
-      "icon": "./src/images/icons/interna.jpg"
+      "icon": "./src/images/icons/pulmologija.jpg"
     },
     {
       "id": 9,
       "name": "Ginekologija",
-      "icon": "./src/images/icons/interna.jpg"
+      "icon": "./src/images/icons/ginekologija.jpg"
     },
     {
       "id": 10,
       "name": "Opšta medicina",
-      "icon": "./src/images/icons/interna.jpg"
+      "icon": "./src/images/icons/opsta.jpg"
     },
     {
       "id": 11,
       "name": "Pedijatrija",
-      "icon": "./src/images/icons/interna.jpg"
+      "icon": "./src/images/icons/pedijatrija.jpg"
     }
   ]
 }

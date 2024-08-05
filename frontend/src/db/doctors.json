@@ -5,7 +5,7 @@
       "firstName": "Milan",
       "lastName": "Jovanović",
       "specialization": "Kardiolog",
-      "image": "https://example.com/images/milan_jovanovic.jpg"
+      "image": "./src/images/Doktori/MilanJovanovic.jpg"
     },
     {
       "id": 2,
@@ -19,56 +19,56 @@
       "firstName": "Marko",
       "lastName": "Nikolić",
       "specialization": "Ortoped",
-      "image": "https://example.com/images/marko_nikolic.jpg"
+      "image": "./src/images/Doktori/MarkoNikolic.jpg"
     },
     {
       "id": 4,
       "firstName": "Jelena",
       "lastName": "Milovanović",
-      "specialization": "Pediatar",
-      "image": "https://example.com/images/jelena_milovanovic.jpg"
+      "specialization": "Pedijatar",
+      "image": "./src/images/Doktori/JelenaMilovanovic.jpeg"
     },
     {
       "id": 5,
       "firstName": "Ivan",
       "lastName": "Popović",
       "specialization": "Neurolog",
-      "image": "https://example.com/images/ivan_popovic.jpg"
+      "image": "./src/images/Doktori/IvanPopovic.avif"
     },
     {
       "id": 6,
       "firstName": "Marija",
       "lastName": "Savić",
       "specialization": "Ginekolog",
-      "image": "https://example.com/images/marija_savic.jpg"
+      "image": "./src/images/Doktori/MarijaSavic.avif"
     },
     {
       "id": 7,
       "firstName": "Stefan",
       "lastName": "Kovačević",
       "specialization": "Oftalmolog",
-      "image": "https://example.com/images/stefan_kovacevic.jpg"
+      "image": "./src/images/Doktori/StefanKovacevic.jpeg"
     },
     {
       "id": 8,
       "firstName": "Dragana",
       "lastName": "Lukić",
       "specialization": "Hirurg",
-      "image": "https://example.com/images/dragana_lukic.jpg"
+      "image": "./src/images/Doktori/DraganaLukic.jpg"
     },
     {
       "id": 9,
       "firstName": "Nenad",
       "lastName": "Stojanović",
       "specialization": "Urolog",
-      "image": "https://example.com/images/nenad_stojanovic.jpg"
+      "image": "./src/images/Doktori/NenadStojanovic.jpg"
     },
     {
       "id": 10,
       "firstName": "Ivana",
       "lastName": "Kostić",
       "specialization": "Radiolog",
-      "image": "https://example.com/images/ivana_kostic.jpg"
+      "image": "./src/images/Doktori/IvanaKostic.png"
     }
   ]
 }

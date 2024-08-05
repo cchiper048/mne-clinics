@@ -16,9 +16,11 @@ const Header = () => {
         <div className="logo">
           <h2>MNE-CLINIC</h2>
         </div>
-        <div className="zakazi">
-          <button>Zakazi pregled</button>
-        </div>
+
+        <Link to="/zakazivanje" className="zakazi">
+          Zakazi pregled
+        </Link>
+
         <div className="right-header">
           <div className="nav-icon">
             <FaBars onClick={handleModal} />

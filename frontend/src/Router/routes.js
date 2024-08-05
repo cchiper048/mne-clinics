@@ -8,6 +8,7 @@ import { Doktori } from "../pages/Doktori";
 import { Layout } from "../components/Layout";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
+import { ZakaziPregled } from "../components/ZakaziPregled";
 
 export const routes = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: React.createElement(Register),
+      },
+      {
+        path: "/zakazivanje",
+        element: React.createElement(ZakaziPregled),
       },
     ],
   },
