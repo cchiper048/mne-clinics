@@ -1,38 +1,40 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/login.css";
 import { useAuth } from "../services/auth";
+import {  useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(null);
   const [error, setError] = useState(null);
   const [errVisible, setErrVisible] = useState(true);
   const { authenticate } = useAuth();
+  const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  useEffect(() => {
+    if (error) {
+      setErrVisible(true);
+    }
+  }, [email, password]);
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = await authenticate(email, password);
-      setToken(token);
+      await authenticate(email, password);
+      setEmail("");
+      setPassword("");
       setError(null);
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
   };
+
   const handleErrClose = () => {
-    setErrVisible(!errVisible);
-    setEmail("");
-    setPassword("");
+    setErrVisible(false);
   };
 
   return (
@@ -60,11 +62,8 @@ export const Login = () => {
         </div>
         <button type="submit">Login</button>
       </form>
-      {error && (
-        <p
-          className={errVisible ? "error-msg" : "err-hide"}
-          onClick={handleErrClose}
-        >
+      {error && errVisible && (
+        <p className="error-msg" onClick={handleErrClose}>
           {error}
         </p>
       )}

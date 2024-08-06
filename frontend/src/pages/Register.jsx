@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { AuthContext } from "../services/AuthContext";
 import "../styles/register.css";
+import { useNavigate } from "react-router-dom";
+import { useAxiosInstance } from "../services/axiosInstance";
 
 export const Register = () => {
   const [name, setName] = useState("");
@@ -14,8 +15,9 @@ export const Register = () => {
   const [address, setAddress] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const navigate = useNavigate();
 
-  const { login } = useContext(AuthContext); // Dobijamo login funkciju iz AuthContext
+  const { login } = useContext(AuthContext);
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleSurnameChange = (e) => setSurname(e.target.value);
@@ -25,6 +27,7 @@ export const Register = () => {
   const handleCountryChange = (e) => setCountry(e.target.value);
   const handleCityChange = (e) => setCity(e.target.value);
   const handleAddressChange = (e) => setAddress(e.target.value);
+  const axiosInstance = useAxiosInstance();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +37,7 @@ export const Register = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/register/", {
+      const response = await axiosInstance.post("/register/", {
         email,
         name,
         surname,
@@ -43,10 +46,11 @@ export const Register = () => {
         address,
         password,
       });
-      const token = response.data.token; // Pretpostavljam da je token u response.data.token
-      login(token); // Pozivamo login funkciju iz AuthContext
+      const token = response.data.token;
+      login(token);
       setSuccess("Uspešna registracija!");
       setError(null);
+      navigate("/");
     } catch (error) {
       setError("Registracija nije uspela. Pokušajte ponovo.");
     }
