@@ -1,66 +1,88 @@
 .login-holder {
-    display: flex;
-    justify-content: center;
-    min-height: 80vh;
-    align-items: center;
-    background-image: url("../images/Retail-Clinics-Target-Chronic-Diseases.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 5%;
-    animation: slideIn 1s forwards;
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  align-items: center;
+  background-image: url("../images/Retail-Clinics-Target-Chronic-Diseases.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 5%;
+  animation: slideIn 1s forwards;
+  position: relative;
 }
 
 .login-form {
-    background: rgba(255, 255, 255, 0.6);
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.form-group-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+.form-group-login input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 24px;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 @keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideOut {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.error-msg {
+  width: fit-content;
+  height: 120px;
+  color: #fff;
+  font-size: 24px;
+  padding: 12px 24px;
+  background-color: rgb(174, 5, 5);
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.err-hide {
+  display: none;
 }

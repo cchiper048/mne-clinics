@@ -62,7 +62,7 @@ export const Footer = () => {
         <h2>Nase usluge</h2>
         <ul>
           {usluge.map((usluga) => (
-            <li>
+            <li key={usluga.id}>
               <FaArrowAltCircleRight />
               <p>{usluga.name}</p>
             </li>

@@ -9,6 +9,7 @@ import { Layout } from "../components/Layout";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
 import { ZakaziPregled } from "../components/ZakaziPregled";
+import { PrivateRoute } from "../Router/PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -45,7 +46,13 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/zakazivanje",
-        element: React.createElement(ZakaziPregled),
+        element: React.createElement(PrivateRoute),
+        children: [
+          {
+            path: "",
+            element: React.createElement(ZakaziPregled),
+          },
+        ],
       },
     ],
   },

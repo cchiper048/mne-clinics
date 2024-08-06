@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { UslugaKartica } from "../components/UslugaKartica";
 import "../styles/home.css";
 import videoSrc from "../images/video-backg.mp4";
 import { FaHeart } from "react-icons/fa";

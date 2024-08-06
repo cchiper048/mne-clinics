@@ -50,7 +50,7 @@ export const ZakaziPregled = () => {
 
   return (
     <section className="zakazi-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="zakazivanje-form">
         <div>
           <label htmlFor="doctor">Izaberi Doktora:</label>
           <select
