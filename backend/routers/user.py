@@ -5,6 +5,7 @@ from backend.db import SessionLocal, engine
 from backend.crud import user as user_crud
 from backend.schemas import user as user_schemas
 from backend.models import user as user_models
+import copy
 
 user_models.Base.metadata.create_all(bind=engine)
 
@@ -24,9 +25,17 @@ def read_user():
         "message": "Hello There :D"
     }
 
-@router.post("/register/", response_model=user_schemas.User)
+@router.post("/register/")
 def register_user(user: user_schemas.UserCreate, db: Session = Depends(get_db)):
-    return user_crud.create_user(db=db, user=user)
+    user_copy = copy.copy(user)
+
+    user_crud.create_user(db=db, user=user)
+
+    return user_crud.login_user(db=db, auth_details=user_schemas.UserAuth(
+        email=user_copy.email,
+        password=user_copy.password
+    ))
+
     
 
 @router.post("/login/")

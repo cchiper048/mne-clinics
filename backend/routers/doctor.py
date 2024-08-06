@@ -15,7 +15,7 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/doctor/")
+@router.get("/doctors/")
 def read_user():
     return {
         "message": "Hello There :D"

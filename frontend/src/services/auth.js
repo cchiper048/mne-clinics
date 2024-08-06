@@ -9,7 +9,7 @@ export const useAuth = () => {
 
   const authenticate = async (email, password) => {
     try {
-      const response = await axiosInstance.post("/test-protested/", {
+      const response = await axiosInstance.post("/test-protected/", {
         email,
         password,
       });

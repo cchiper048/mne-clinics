@@ -12,3 +12,5 @@ class Doctor(Base):
     email = Column(String)
     is_active = Column(Boolean)
     about = Column(String)
+    specialization = Column(String)
+    image = Column(String)
