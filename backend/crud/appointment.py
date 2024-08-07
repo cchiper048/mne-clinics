@@ -21,3 +21,16 @@ def get_appointments(db: Session, doctor_id: int, date: str):
     ]
 
     return remove_strings(times, appointment_times)
+
+def post_appointment(db: Session, doctor_id: int, date: str, time: str):
+    db_appointment = appointment_models.Appointment(
+        doctor_id=doctor_id,
+        date=date,
+        time=time
+    )
+
+    db.add(db_appointment)
+    db.commit()
+    db.refresh(db_appointment)
+
+    return db_appointment

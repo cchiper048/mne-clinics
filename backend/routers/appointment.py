@@ -19,3 +19,7 @@ def get_db():
 @router.get("/appointments/{doctor_id}/{date}")
 def read_user(doctor_id: int, date: str, db: Session = Depends(get_db)):
     return appointment_crud.get_appointments(db, doctor_id, date)
+
+@router.post("/appointments/")
+def add_appointment(doctor_id: int, date: str, time: str, db: Session = Depends(get_db)):
+    return appointment_crud.post_appointment(db, doctor_id, date, time)
