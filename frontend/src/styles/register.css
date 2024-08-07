@@ -8,6 +8,7 @@
   background-position: center;
   height: 80vh;
   animation: slideIn 1s forwards;
+  overflow-y: auto;
 }
 
 .register-form {
@@ -21,6 +22,8 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 24px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .form-group {
@@ -54,10 +57,15 @@ button:hover {
 }
 
 @media (max-width: 700px) {
+  .register-holder {
+    height: auto;
+    padding: 20px;
+  }
   .register-form {
+    width: 90%;
     flex-direction: column;
   }
   .form-group {
-    width: 90%;
+    width: 100%;
   }
 }
