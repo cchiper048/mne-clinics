@@ -5,7 +5,8 @@ import axios from "axios";
 import { getDoctors } from "../services/api";
 import "../styles/zakaziPregled.css";
 
-const APPOINTMENTS_API_URL = "http://localhost:8000/appointments";
+const APPOINTMENTS_API_URL =
+  " https://633b-109-228-127-3.ngrok-free.app/appointments";
 
 export const ZakaziPregled = () => {
   const [doctors, setDoctors] = useState([]);
@@ -43,7 +44,7 @@ export const ZakaziPregled = () => {
 
           if (Array.isArray(availableTimesData)) {
             setAvailableTimes(availableTimesData);
-            setDatesWithAvailableTimes([new Date(formattedDate)]); // Postavite datum za DatePicker
+            setDatesWithAvailableTimes([new Date(formattedDate)]);
           } else {
             setAvailableTimes([]);
             setDatesWithAvailableTimes([]);
@@ -117,7 +118,7 @@ export const ZakaziPregled = () => {
             onChange={(date) => setAppointmentDate(date)}
             dateFormat="dd.MM.yyyy"
             filterDate={isWeekday}
-            includeDates={datesWithAvailableTimes} // Uverite se da su datumi ispravno formatirani
+            includeDates={datesWithAvailableTimes}
             minDate={minDate}
             maxDate={maxDate}
             required
@@ -132,7 +133,7 @@ export const ZakaziPregled = () => {
             onChange={(e) => setAppointmentTime(e.target.value)}
             required
           >
-            <option value="">--Izaberite vreme--</option>
+            <option value="">--Izaberite vrijeme--</option>
             {availableTimes.map((time, index) => (
               <option key={index} value={time}>
                 {time}

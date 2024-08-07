@@ -42,7 +42,6 @@ const Header = () => {
                   <FaUser />
                 </span>
                 {user ? `${user.name} ` : "User"}{" "}
-                {/* Ako želite da prikažete ime i prezime korisnika */}
               </p>
               <button onClick={handleLogout} id="logout-button">
                 Logout

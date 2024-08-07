@@ -6,7 +6,7 @@ export const useAxiosInstance = () => {
   const { token } = useContext(AuthContext);
 
   const instance = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: " https://633b-109-228-127-3.ngrok-free.app/",
     headers: {
       Authorization: token ? `Bearer ${token}` : undefined,
     },

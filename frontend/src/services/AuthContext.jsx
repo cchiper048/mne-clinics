@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Ako postoji token u localStorage, postavite ga u stanje
     const token = localStorage.getItem("authToken");
     if (token) {
       setAuthToken(token);
@@ -17,17 +16,15 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (token, userData) => {
-    // Postavite token i korisničke podatke
     setAuthToken(token);
     setUser(userData);
-    localStorage.setItem("authToken", token); // Sinhronizujte token sa localStorage
+    localStorage.setItem("authToken", token);
   };
 
   const logout = () => {
-    // Očistite token i korisničke podatke
     setAuthToken(null);
     setUser(null);
-    localStorage.removeItem("authToken"); // Sinhronizujte localStorage
+    localStorage.removeItem("authToken");
   };
 
   return (
