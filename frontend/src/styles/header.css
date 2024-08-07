@@ -18,9 +18,25 @@ header {
   width: 30%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 32px;
+  justify-content: right;
   font-size: 24px;
+}
+.login-reg {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+#logout-button {
+  background-color: #000;
+  width: 50%;
+}
+.login-reg p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 header a {
   display: inline-block;
@@ -33,6 +49,7 @@ header a {
   border-right: 1px solid rgb(86, 85, 85);
   text-align: center;
 }
+
 header a:last-child {
   border: none;
 }
@@ -47,6 +64,9 @@ header a::after {
 }
 header a:hover::after {
   width: 80%;
+}
+.login-reg a {
+  width: 100%;
 }
 
 .nav-icon {
@@ -180,6 +200,7 @@ header a:hover::after {
     align-items: flex-start;
     padding: 20px;
     flex-wrap: wrap;
+    align-items: center;
   }
   header a {
     border: none;
@@ -188,6 +209,13 @@ header a:hover::after {
   .right-header {
     width: 100%;
     justify-content: space-between;
+  }
+  .login-reg {
+    width: 40%;
+    justify-content: flex-end;
+  }
+  .login-reg a {
+    font-size: 18px;
   }
 
   .logo {
@@ -217,10 +245,11 @@ header a:hover::after {
 @media (max-width: 576px) {
   header {
     padding: 10px;
+    align-items: center;
   }
 
-  .right-header {
-    gap: 16px;
+  .right-header a {
+    font-size: 16px;
   }
 
   .logo {
@@ -247,5 +276,21 @@ header a:hover::after {
 
   .side-bar ul li a {
     font-size: 20px;
+  }
+}
+@media (max-width: 470px) {
+  .zakazi {
+    font-size: 14px;
+  }
+  .right-header {
+    width: 100%;
+  }
+  .right-header a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 310px) {
+  .logo h2 {
+    font-size: 18px;
   }
 }

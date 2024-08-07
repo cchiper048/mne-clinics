@@ -17,7 +17,7 @@ export const Register = () => {
   const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
 
-  const { login } = useContext(AuthContext);
+  const { login, user } = useContext(AuthContext);
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleSurnameChange = (e) => setSurname(e.target.value);
@@ -46,8 +46,10 @@ export const Register = () => {
         address,
         password,
       });
+      const userResponse = await axiosInstance.post("/user/");
+      const userData = userResponse.data;
       const token = response.data.token;
-      login(token);
+      login(token, userData);
       setSuccess("Uspešna registracija!");
       setError(null);
       navigate("/");

@@ -1,14 +1,22 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../styles/header.css";
-import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaBars, FaUser } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import { Modal } from "./Modal";
+import { AuthContext } from "../services/AuthContext";
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
+  const { authToken, logout, user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleModal = () => {
     setShowModal(!showModal);
+  };
+  const handleLogout = () => {
+    logout();
+    navigate("/");
   };
   return (
     <>
@@ -26,8 +34,24 @@ const Header = () => {
             <FaBars onClick={handleModal} />
           </div>
 
-          <Link to="/login">Log in</Link>
-          <Link to="/register">Register</Link>
+          {authToken ? (
+            <div className="login-reg">
+              <p>
+                <span>
+                  <FaUser />
+                </span>
+                {user}
+              </p>
+              <button onClick={handleLogout} id="logout-button">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="login-reg">
+              <Link to="/login">Log in</Link>
+              <Link to="/register">Register</Link>
+            </div>
+          )}
         </div>
       </header>
       <Modal show={showModal} setShow={setShowModal}></Modal>

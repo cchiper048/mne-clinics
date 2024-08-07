@@ -9,6 +9,7 @@ export const ZakaziPregled = () => {
   const [selectedDoctor, setSelectedDoctor] = useState("");
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [appointmentTime, setAppointmentTime] = useState("");
+  const [availableTimes, setAvailableTimes] = useState([]);
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -24,6 +25,25 @@ export const ZakaziPregled = () => {
     fetchDoctors();
   }, []);
 
+  useEffect(() => {
+    const fetchAvailableTimes = async () => {
+      if (selectedDoctor && appointmentDate) {
+        const formattedDate = appointmentDate.toISOString().split("T")[0];
+        try {
+          const response = await fetch(
+            `/appointment?doctor=${selectedDoctor}&date=${formattedDate}`
+          );
+          const data = await response.json();
+          setAvailableTimes(data);
+        } catch (error) {
+          console.error("Error fetching available times:", error);
+        }
+      }
+    };
+
+    fetchAvailableTimes();
+  }, [selectedDoctor, appointmentDate]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const appointmentDetails = {
@@ -34,7 +54,7 @@ export const ZakaziPregled = () => {
     console.log("Appointment Details:", appointmentDetails);
 
     // Send the appointment details to the server
-    fetch("", {
+    fetch("/appointment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,6 +67,15 @@ export const ZakaziPregled = () => {
       })
       .catch((error) => console.error("Error:", error));
   };
+
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
+
+  const minDate = new Date();
+  const maxDate = new Date();
+  maxDate.setDate(minDate.getDate() + 7);
 
   return (
     <section className="zakazi-container">
@@ -62,7 +91,7 @@ export const ZakaziPregled = () => {
             <option value="">--Izaberite doktora--</option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>
-                {`${doctor.firstName}  ${doctor.lastName}`}
+                {`${doctor.firstName} ${doctor.lastName}`}
               </option>
             ))}
           </select>
@@ -74,19 +103,28 @@ export const ZakaziPregled = () => {
             selected={appointmentDate}
             onChange={(date) => setAppointmentDate(date)}
             dateFormat="yyyy/MM/dd"
+            filterDate={isWeekday}
+            minDate={minDate}
+            maxDate={maxDate}
             required
           />
         </div>
 
         <div>
           <label htmlFor="time">Izaberi Vrijeme:</label>
-          <input
-            type="time"
+          <select
             id="time"
             value={appointmentTime}
             onChange={(e) => setAppointmentTime(e.target.value)}
             required
-          />
+          >
+            <option value="">--Izaberite vreme--</option>
+            {availableTimes.map((time, index) => (
+              <option key={index} value={time}>
+                {time}
+              </option>
+            ))}
+          </select>
         </div>
 
         <button type="submit">Zakazi</button>
