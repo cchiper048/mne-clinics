@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 import { getDoctors } from "../services/api";
 import "../styles/zakaziPregled.css";
+
+const APPOINTMENTS_API_URL = "./src/db/availableTimes.json";
 
 export const ZakaziPregled = () => {
   const [doctors, setDoctors] = useState([]);
@@ -16,9 +19,8 @@ export const ZakaziPregled = () => {
       try {
         const doctorsData = await getDoctors();
         setDoctors(doctorsData || []);
-        console.log(doctorsData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching doctors data:", error);
       }
     };
 
@@ -28,13 +30,18 @@ export const ZakaziPregled = () => {
   useEffect(() => {
     const fetchAvailableTimes = async () => {
       if (selectedDoctor && appointmentDate) {
-        const formattedDate = appointmentDate.toISOString().split("T")[0];
+        const formattedDate = appointmentDate.toLocaleDateString("sr-RS", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        });
         try {
-          const response = await fetch(
-            `/appointment?doctor=${selectedDoctor}&date=${formattedDate}`
-          );
-          const data = await response.json();
-          setAvailableTimes(data);
+          const response = await axios.get(APPOINTMENTS_API_URL);
+          const availableTimesData = response.data;
+
+          const timesForSelectedDoctorAndDate =
+            availableTimesData[selectedDoctor]?.[formattedDate] || [];
+          setAvailableTimes(timesForSelectedDoctorAndDate);
         } catch (error) {
           console.error("Error fetching available times:", error);
         }
@@ -44,28 +51,28 @@ export const ZakaziPregled = () => {
     fetchAvailableTimes();
   }, [selectedDoctor, appointmentDate]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const appointmentDetails = {
       doctor: selectedDoctor,
-      date: appointmentDate.toDateString(),
+      date: appointmentDate.toLocaleDateString("sr-RS", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }),
       time: appointmentTime,
     };
     console.log("Appointment Details:", appointmentDetails);
 
-    // Send the appointment details to the server
-    fetch("/appointment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(appointmentDetails),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => console.error("Error:", error));
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/appointment",
+        appointmentDetails
+      );
+      console.log("Success:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   const isWeekday = (date) => {
@@ -75,7 +82,7 @@ export const ZakaziPregled = () => {
 
   const minDate = new Date();
   const maxDate = new Date();
-  maxDate.setDate(minDate.getDate() + 7);
+  maxDate.setDate(minDate.getDate() + 30);
 
   return (
     <section className="zakazi-container">
@@ -102,7 +109,7 @@ export const ZakaziPregled = () => {
           <DatePicker
             selected={appointmentDate}
             onChange={(date) => setAppointmentDate(date)}
-            dateFormat="yyyy/MM/dd"
+            dateFormat="dd.MM.yyyy"
             filterDate={isWeekday}
             minDate={minDate}
             maxDate={maxDate}

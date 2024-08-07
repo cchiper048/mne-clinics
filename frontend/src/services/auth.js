@@ -13,16 +13,14 @@ export const useAuth = () => {
         password,
       });
 
-      const token = response.data.token;
+      const { token, name, surname, email: userEmail } = response.data;
+
       setToken(token);
       axiosInstance.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${token}`;
-
-      const userResponse = await axiosInstance.get("/user/");
-      const userData = userResponse.data;
-      setUser(userResponse.data);
-      login(token, userData);
+      setUser({ name, surname, email: userEmail });
+      login(token, { name, surname, email: userEmail });
     } catch (error) {
       throw new Error("Nepostojeći korisnik!");
     }
