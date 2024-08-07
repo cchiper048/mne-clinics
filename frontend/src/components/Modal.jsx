@@ -1,3 +1,4 @@
+import { FaClosedCaptioning, FaXingSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const Modal = ({ show, setShow }) => {
@@ -7,7 +8,12 @@ export const Modal = ({ show, setShow }) => {
   return (
     <div className={show ? "active-modal" : "modal-window"}>
       <div className="side-bar">
-        <h2>MNE-CLINIC</h2>
+        <h2>
+          MNE-CLINIC
+          <span className="x-mark" onClick={handleClose}>
+            X
+          </span>
+        </h2>
         <ul onClick={handleClose}>
           <li>
             <Link to="/">Pocetna</Link>

@@ -159,6 +159,24 @@ header a:hover::after {
 .side-bar ul li a:focus {
   color: #0a70ed;
 }
+.side-bar h2 {
+  position: relative;
+}
+.x-mark {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10%;
+  top: 0;
+  padding: 8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
 @media (max-width: 1200px) {
   header {
