@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/header.css";
 import { FaBars, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,15 +9,16 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const { authToken, logout, user } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
 
   const handleModal = () => {
-    setShowModal(!showModal);
+    setShowModal((prevShowModal) => !prevShowModal);
   };
+
   const handleLogout = () => {
     logout();
     navigate("/");
   };
+
   return (
     <>
       <header>
@@ -41,7 +41,8 @@ const Header = () => {
                 <span>
                   <FaUser />
                 </span>
-                {user.name}
+                {user ? `${user.name} ` : "User"}{" "}
+                {/* Ako želite da prikažete ime i prezime korisnika */}
               </p>
               <button onClick={handleLogout} id="logout-button">
                 Logout
@@ -55,7 +56,7 @@ const Header = () => {
           )}
         </div>
       </header>
-      <Modal show={showModal} setShow={setShowModal}></Modal>
+      <Modal show={showModal} setShow={setShowModal} />
     </>
   );
 };

@@ -3,7 +3,7 @@ import { AuthContext } from "../services/AuthContext";
 import { useAxiosInstance } from "./axiosInstance";
 
 export const useAuth = () => {
-  const { setToken, setUser, login, logout } = useContext(AuthContext);
+  const { setAuthToken, setUser, login, logout } = useContext(AuthContext);
   const axiosInstance = useAxiosInstance();
 
   const authenticate = async (email, password) => {
@@ -15,7 +15,7 @@ export const useAuth = () => {
 
       const { token, name, surname, email: userEmail } = response.data;
 
-      setToken(token);
+      setAuthToken(token);
       axiosInstance.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${token}`;

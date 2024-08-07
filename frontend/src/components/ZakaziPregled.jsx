@@ -5,7 +5,7 @@ import axios from "axios";
 import { getDoctors } from "../services/api";
 import "../styles/zakaziPregled.css";
 
-const APPOINTMENTS_API_URL = "./src/db/availableTimes.json";
+const APPOINTMENTS_API_URL = "http://localhost:8000/appointments";
 
 export const ZakaziPregled = () => {
   const [doctors, setDoctors] = useState([]);
@@ -30,26 +30,20 @@ export const ZakaziPregled = () => {
 
   useEffect(() => {
     const fetchAvailableTimes = async () => {
-      if (selectedDoctor) {
+      if (selectedDoctor && appointmentDate) {
         try {
-          const response = await axios.get(APPOINTMENTS_API_URL);
-          const availableTimesData = response.data.appointments;
-
-          // Pronađi podatke za izabranog doktora
-          const timesForSelectedDoctor = availableTimesData.find(
-            (appointment) => appointment.doctorId === parseInt(selectedDoctor)
+          const formattedDate = appointmentDate.toISOString().split("T")[0];
+          const response = await axios.get(
+            `${APPOINTMENTS_API_URL}/${selectedDoctor}/${formattedDate}`
           );
 
-          // Ako podaci za doktora postoje
-          if (timesForSelectedDoctor) {
-            // Setuj dostupne termine za izabranog doktora
-            setAvailableTimes(timesForSelectedDoctor.availableTimes);
+          console.log("API Response:", response.data);
 
-            // Prikupi datume za dostupne termine
-            const availableDates = timesForSelectedDoctor.availableTimes.map(
-              (timeSlot) => timeSlot.date
-            );
-            setDatesWithAvailableTimes(availableDates);
+          const availableTimesData = response.data;
+
+          if (Array.isArray(availableTimesData)) {
+            setAvailableTimes(availableTimesData);
+            setDatesWithAvailableTimes([new Date(formattedDate)]); // Postavite datum za DatePicker
           } else {
             setAvailableTimes([]);
             setDatesWithAvailableTimes([]);
@@ -61,38 +55,20 @@ export const ZakaziPregled = () => {
     };
 
     fetchAvailableTimes();
-  }, [selectedDoctor]);
-
-  useEffect(() => {
-    if (appointmentDate) {
-      const formattedDate = appointmentDate.toLocaleDateString("sr-RS", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      });
-      // Proveri da li je `availableTimes` niz pre nego što se koristi `map`
-      if (Array.isArray(availableTimes)) {
-        setAvailableTimes((prevTimes) => prevTimes[formattedDate] || []);
-      }
-    }
-  }, [appointmentDate]);
+  }, [selectedDoctor, appointmentDate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const appointmentDetails = {
-      doctor: selectedDoctor,
-      date: appointmentDate.toLocaleDateString("sr-RS", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }),
+      doctor_id: selectedDoctor,
+      date: appointmentDate.toISOString().split("T")[0],
       time: appointmentTime,
     };
     console.log("Appointment Details:", appointmentDetails);
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/appointment",
+        `${APPOINTMENTS_API_URL}`,
         appointmentDetails
       );
       console.log("Success:", response.data);
@@ -109,6 +85,10 @@ export const ZakaziPregled = () => {
   const minDate = new Date();
   const maxDate = new Date();
   maxDate.setDate(minDate.getDate() + 30);
+
+  useEffect(() => {
+    console.log("Appointment Date Changed:", appointmentDate);
+  }, [appointmentDate]);
 
   return (
     <section className="zakazi-container">
@@ -137,7 +117,7 @@ export const ZakaziPregled = () => {
             onChange={(date) => setAppointmentDate(date)}
             dateFormat="dd.MM.yyyy"
             filterDate={isWeekday}
-            includeDates={datesWithAvailableTimes}
+            includeDates={datesWithAvailableTimes} // Uverite se da su datumi ispravno formatirani
             minDate={minDate}
             maxDate={maxDate}
             required
@@ -154,7 +134,9 @@ export const ZakaziPregled = () => {
           >
             <option value="">--Izaberite vreme--</option>
             {availableTimes.map((time, index) => (
-              <option key={index} value={time}></option>
+              <option key={index} value={time}>
+                {time}
+              </option>
             ))}
           </select>
         </div>
