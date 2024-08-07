@@ -13,6 +13,7 @@ export const ZakaziPregled = () => {
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [appointmentTime, setAppointmentTime] = useState("");
   const [availableTimes, setAvailableTimes] = useState([]);
+  const [datesWithAvailableTimes, setDatesWithAvailableTimes] = useState([]);
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -29,19 +30,30 @@ export const ZakaziPregled = () => {
 
   useEffect(() => {
     const fetchAvailableTimes = async () => {
-      if (selectedDoctor && appointmentDate) {
-        const formattedDate = appointmentDate.toLocaleDateString("sr-RS", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        });
+      if (selectedDoctor) {
         try {
           const response = await axios.get(APPOINTMENTS_API_URL);
-          const availableTimesData = response.data;
+          const availableTimesData = response.data.appointments;
 
-          const timesForSelectedDoctorAndDate =
-            availableTimesData[selectedDoctor]?.[formattedDate] || [];
-          setAvailableTimes(timesForSelectedDoctorAndDate);
+          // Pronađi podatke za izabranog doktora
+          const timesForSelectedDoctor = availableTimesData.find(
+            (appointment) => appointment.doctorId === parseInt(selectedDoctor)
+          );
+
+          // Ako podaci za doktora postoje
+          if (timesForSelectedDoctor) {
+            // Setuj dostupne termine za izabranog doktora
+            setAvailableTimes(timesForSelectedDoctor.availableTimes);
+
+            // Prikupi datume za dostupne termine
+            const availableDates = timesForSelectedDoctor.availableTimes.map(
+              (timeSlot) => timeSlot.date
+            );
+            setDatesWithAvailableTimes(availableDates);
+          } else {
+            setAvailableTimes([]);
+            setDatesWithAvailableTimes([]);
+          }
         } catch (error) {
           console.error("Error fetching available times:", error);
         }
@@ -49,7 +61,21 @@ export const ZakaziPregled = () => {
     };
 
     fetchAvailableTimes();
-  }, [selectedDoctor, appointmentDate]);
+  }, [selectedDoctor]);
+
+  useEffect(() => {
+    if (appointmentDate) {
+      const formattedDate = appointmentDate.toLocaleDateString("sr-RS", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+      // Proveri da li je `availableTimes` niz pre nego što se koristi `map`
+      if (Array.isArray(availableTimes)) {
+        setAvailableTimes((prevTimes) => prevTimes[formattedDate] || []);
+      }
+    }
+  }, [appointmentDate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -66,7 +92,7 @@ export const ZakaziPregled = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/appointment",
+        "http://localhost:8000/appointment",
         appointmentDetails
       );
       console.log("Success:", response.data);
@@ -111,6 +137,7 @@ export const ZakaziPregled = () => {
             onChange={(date) => setAppointmentDate(date)}
             dateFormat="dd.MM.yyyy"
             filterDate={isWeekday}
+            includeDates={datesWithAvailableTimes}
             minDate={minDate}
             maxDate={maxDate}
             required
@@ -127,9 +154,7 @@ export const ZakaziPregled = () => {
           >
             <option value="">--Izaberite vreme--</option>
             {availableTimes.map((time, index) => (
-              <option key={index} value={time}>
-                {time}
-              </option>
+              <option key={index} value={time}></option>
             ))}
           </select>
         </div>

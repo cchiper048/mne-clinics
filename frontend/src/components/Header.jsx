@@ -10,6 +10,7 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const { authToken, logout, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log(user);
 
   const handleModal = () => {
     setShowModal(!showModal);
@@ -40,7 +41,7 @@ const Header = () => {
                 <span>
                   <FaUser />
                 </span>
-                {user}
+                {user.name}
               </p>
               <button onClick={handleLogout} id="logout-button">
                 Logout
