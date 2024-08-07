@@ -44,7 +44,12 @@ def login_user(db: Session, auth_details: user_schemas.UserAuth):
         algorithm='HS256'
     )
 
-    return { "token": token }
+    return { 
+        "token": token,
+        "email": user.email,
+        "name": user.name,
+        "surname": user.surname
+    }
 
 
 class AuthHandler():
