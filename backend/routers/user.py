@@ -36,7 +36,6 @@ def register_user(user: user_schemas.UserCreate, db: Session = Depends(get_db)):
         password=user_copy.password
     ))
 
-    
 
 @router.post("/login/")
 def login_user(auth_details: user_schemas.UserAuth, db: Session = Depends(get_db)):
