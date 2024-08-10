@@ -6,8 +6,8 @@ import { getDoctors } from "../services/api";
 import "../styles/zakaziPregled.css";
 
 const APPOINTMENTS_API_URL =
-  " https://633b-109-228-127-3.ngrok-free.app/appointments";
-
+  // " https://633b-109-228-127-3.ngrok-free.app/appointments";
+  "http://localhost:8000/appointments";
 export const ZakaziPregled = () => {
   const [doctors, setDoctors] = useState([]);
   const [selectedDoctor, setSelectedDoctor] = useState("");

@@ -57,5 +57,12 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 24px;
+    text-align: center;
+  }
+  .info {
+    width: 90%;
+  }
+  .usluge {
+    width: 90%;
   }
 }

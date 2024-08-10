@@ -1,47 +1,103 @@
 .main-section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 120px;
-    flex-direction: row-reverse;
-    animation: slideIn 1s forwards;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px;
+  flex-direction: row-reverse;
+  animation: slideIn 1s forwards;
 }
+
 .description {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    line-height: 1.5;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.5;
 }
+
 .description p {
-    color: #757373;
+  color: #757373;
 }
+
 .image-holder {
-    border-radius: 12px;
-    overflow: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 50%;
 }
+
 .icons {
-    margin-top: 24px;
-    width: 80%;
-    display: flex;
-    justify-content: flex-start;
-    gap: 24px;
+  margin-top: 24px;
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
 }
 
 .icon-feature {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
 }
+
 .icon-feature p {
-    color: #000;
-    font-weight: bold;
-    font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
 }
+
 .icon-feature span {
-    color: #0a5cc1;
-    font-size: 18px;
-    padding: 6px;
+  color: #0a5cc1;
+  font-size: 18px;
+  padding: 6px;
+}
+
+@media (max-width: 1024px) {
+  .main-section {
+    padding: 80px;
+    flex-direction: column-reverse;
+  }
+
+  .description,
+  .image-holder {
+    width: 80%;
+  }
+
+  .icons {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-section {
+    padding: 60px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .description,
+  .image-holder {
+    width: 100%;
+  }
+
+  .icons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon-feature {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .icon-feature p {
+    font-size: 16px;
+  }
+
+  .icon-feature span {
+    font-size: 16px;
+  }
 }
