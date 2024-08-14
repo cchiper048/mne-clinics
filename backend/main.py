@@ -6,10 +6,17 @@ from .routers import user, appointment_status, service, doctor, appointment, doc
 app = FastAPI()
 
 origins = [
+    "*",
     "http://localhost",
     "http://localhost:8080",
     "http://localhost:5173",
-    "http://localhost:8000"
+    "http://localhost:8000",
+    "https://subtle-parfait-5faeca.netlify.app",
+    "https://subtle-parfait-5faeca.netlify.app/",
+    "https://netlify.app",
+    "https://netlify.app/",
+    "http://localhost:80",
+    "https://633b-109-228-127-3.ngrok-free.app"
 ]
 
 app.add_middleware(
