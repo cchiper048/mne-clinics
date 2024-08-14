@@ -64,5 +64,6 @@ ul {
   }
   .usluge {
     width: 90%;
+    align-items: center;
   }
 }
